@@ -122,10 +122,7 @@
   .line-wrap .deco{width:220px;flex:0 0 auto}
 
   /* share */
-  .share{display:grid;grid-template-columns:1fr minmax(0,420px) 1fr;align-items:center;gap:12px;max-width:960px;margin:0 auto}
-  .share .deco{width:100%;max-width:230px}
-  .share .left{justify-self:end}
-  .share .right{justify-self:start}
+  .share{max-width:460px;margin:0 auto}
   .share-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:28px 24px;text-align:center}
   .share-card .rsvp-dog{width:220px;max-width:80%;margin:0 auto 6px}
   .rsvp-text{color:var(--muted)}
@@ -161,10 +158,6 @@
     .info-deco{width:150px}
     .line-wrap{flex-direction:column;gap:4px}
     .line-wrap .deco{width:170px}
-    .share{grid-template-columns:1fr 1fr;gap:0 8px}
-    .share-card{grid-column:1 / -1;grid-row:2}
-    .share .deco{max-width:150px;margin-bottom:-6px}
-    .share .left,.share .right{justify-self:center}
     .share-card{padding:24px 14px}
     .share-card .rsvp-dog{width:180px}
   }
@@ -291,7 +284,6 @@
     <h2>出席回覆</h2>
     <div class="en">R.S.V.P.</div>
     <div class="share reveal">
-      <img class="deco left" src="images/deco/dog-megaphone.webp" alt="" width="600" height="600" loading="lazy">
       <div class="share-card">
         <img class="deco rsvp-dog" src="images/deco/dog-survey.webp" alt="拿著婚禮調查板的吉娃娃" width="700" height="690" loading="lazy">
         <p class="rsvp-text">為了幫您安排座位與餐點，<br>請花一分鐘填寫出席表單，謝謝您 ♡</p>
@@ -299,7 +291,6 @@
           <a class="btn solid" target="_blank" rel="noopener" href="https://reurl.cc/bdv82l">填寫出席表單</a>
         </div>
       </div>
-      <img class="deco right" src="images/deco/parrot-megaphone.webp" alt="" width="600" height="600" loading="lazy">
     </div>
   </div>
 </section>
