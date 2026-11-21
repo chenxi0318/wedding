@@ -127,13 +127,9 @@
   .share .left{justify-self:end}
   .share .right{justify-self:start}
   .share-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:28px 24px;text-align:center}
-  .share-card .qr{width:150px;margin:0 auto 14px;border-radius:6px}
-  .url-row{display:flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:999px;padding:6px 6px 6px 16px;background:var(--bg)}
-  .url-row a{flex:1;min-width:0;text-align:left;font-family:"Cormorant Garamond",serif;font-size:18px;letter-spacing:.04em;text-decoration:none;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .copy-btn{border:0;background:var(--gold);color:#fff;border-radius:999px;padding:8px 16px;font:inherit;font-size:14px;letter-spacing:.1em;cursor:pointer;flex:0 0 auto}
-  .copy-btn:hover{background:#9E7B39}
+  .share-card .rsvp-dog{width:220px;max-width:80%;margin:0 auto 6px}
+  .rsvp-text{color:var(--muted)}
   .share-card .btns{margin-top:18px}
-  .share-note{color:var(--muted);font-size:14px;margin-top:12px}
 
   .line-box{text-align:center;max-width:520px;margin:0 auto;color:var(--muted)}
 
@@ -170,9 +166,7 @@
     .share .deco{max-width:150px;margin-bottom:-6px}
     .share .left,.share .right{justify-self:center}
     .share-card{padding:24px 14px}
-    .url-row{padding-left:12px}
-    .url-row a{font-size:15px;letter-spacing:0}
-    .copy-btn{padding:8px 12px}
+    .share-card .rsvp-dog{width:180px}
   }
   @media (max-width:380px){ .countdown{gap:8px} .cd{width:58px} .cd b{font-size:24px} }
 </style>
@@ -185,10 +179,10 @@
     <ul>
       <li class="gallery-link" hidden><a href="#gallery">婚紗照</a></li>
       <li><a href="#info">婚宴資訊</a></li>
+      <li><a href="#rsvp">出席回覆</a></li>
       <li><a href="#map">交通地圖</a></li>
       <li><a href="#invitation">喜帖</a></li>
       <li><a href="#line">聯絡我們</a></li>
-      <li><a href="#share">分享</a></li>
     </ul>
   </div>
 </nav>
@@ -284,11 +278,28 @@
         <p><strong>高雄洲際酒店</strong><br>3F 大宴會廳</p>
       </div>
     </div>
-    <img class="deco paper info-deco reveal" src="images/deco/dog-survey.webp" alt="" width="700" height="690" loading="lazy">
     <div class="btns">
       <a class="btn solid" target="_blank" rel="noopener"
          href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=%E6%99%89%E8%8F%AF%20%26%20%E5%AE%A3%E5%9D%87%20%E5%A9%9A%E5%AE%B4&amp;dates=20270123T093000Z/20270123T130000Z&amp;location=%E9%AB%98%E9%9B%84%E6%B4%B2%E9%9A%9B%E9%85%92%E5%BA%97%203F%E5%A4%A7%E5%AE%B4%E6%9C%83%E5%BB%B3%EF%BC%8C806%E9%AB%98%E9%9B%84%E5%B8%82%E5%89%8D%E9%8E%AE%E5%8D%80%E6%96%B0%E5%85%89%E8%B7%AF33%E8%99%9F&amp;details=17%3A30%20%E5%85%A5%E5%B8%AD%E3%80%8118%3A00%20%E9%96%8B%E5%B8%AD%0Ahttps%3A%2F%2Fwedding.jy0318m.com">加入 Google 行事曆</a>
       <a class="btn" href="wedding.ics" download>加入 iPhone / Outlook 行事曆</a>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="rsvp">
+  <div class="wrap">
+    <h2>出席回覆</h2>
+    <div class="en">R.S.V.P.</div>
+    <div class="share reveal">
+      <img class="deco left" src="images/deco/dog-megaphone.webp" alt="" width="600" height="600" loading="lazy">
+      <div class="share-card">
+        <img class="deco rsvp-dog" src="images/deco/dog-survey.webp" alt="拿著婚禮調查板的吉娃娃" width="700" height="690" loading="lazy">
+        <p class="rsvp-text">為了幫您安排座位與餐點，<br>請花一分鐘填寫出席表單，謝謝您 ♡</p>
+        <div class="btns">
+          <a class="btn solid" target="_blank" rel="noopener" href="https://reurl.cc/bdv82l">填寫出席表單</a>
+        </div>
+      </div>
+      <img class="deco right" src="images/deco/parrot-megaphone.webp" alt="" width="600" height="600" loading="lazy">
     </div>
   </div>
 </section>
@@ -338,28 +349,6 @@
   </div>
 </section>
 
-<section class="block" id="share">
-  <div class="wrap">
-    <h2>分享婚禮網站</h2>
-    <div class="en">Spread the Joy</div>
-    <div class="share reveal">
-      <img class="deco left" src="images/deco/dog-megaphone.webp" alt="" width="600" height="600" loading="lazy">
-      <div class="share-card">
-        <img class="qr" src="images/qr-wedding.png" alt="婚禮網站 QR code" width="150" height="150" loading="lazy">
-        <div class="url-row">
-          <a href="https://wedding.jy0318m.com/" id="siteUrl">wedding.jy0318m.com</a>
-          <button class="copy-btn" id="copyBtn" type="button">複製連結</button>
-        </div>
-        <div class="btns">
-          <a class="btn line" target="_blank" rel="noopener" href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fwedding.jy0318m.com%2F">分享到 LINE</a>
-          <button class="btn" id="nativeShare" type="button" hidden>更多分享方式</button>
-        </div>
-        <div class="share-note">掃描 QR code 或分享連結，邀請親友一起來看 ♡</div>
-      </div>
-      <img class="deco right" src="images/deco/parrot-megaphone.webp" alt="" width="600" height="600" loading="lazy">
-    </div>
-  </div>
-</section>
 
 <footer>
   <div class="script">Thank you</div>
@@ -456,25 +445,6 @@
       new IntersectionObserver(function(en){ if (en[0].isIntersecting) restart(); else clearInterval(timer); }).observe(stage);
     }
     go(0); setPlay(playing);
-  })();
-
-  // ===== 分享 =====
-  (function(){
-    var url = "https://wedding.jy0318m.com/";
-    var btn = document.getElementById("copyBtn");
-    btn.addEventListener("click", function(){
-      function done(){ btn.textContent = "已複製 ✓"; setTimeout(function(){ btn.textContent = "複製連結"; }, 2000); }
-      if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(url).then(done, fallback); } else { fallback(); }
-      function fallback(){
-        var t = document.createElement("textarea"); t.value = url; t.style.position = "fixed"; t.style.opacity = "0";
-        document.body.appendChild(t); t.select(); try { document.execCommand("copy"); done(); } catch(e) { prompt("請複製這個網址：", url); } document.body.removeChild(t);
-      }
-    });
-    var ns = document.getElementById("nativeShare");
-    if (navigator.share) {
-      ns.hidden = false;
-      ns.addEventListener("click", function(){ navigator.share({title: "晉華 & 宣均 婚禮", text: "2027/1/23 高雄洲際酒店，誠摯邀請您！", url: url}).catch(function(){}); });
-    }
   })();
 
   // countdown to 2027-01-23 17:30 Taiwan time
