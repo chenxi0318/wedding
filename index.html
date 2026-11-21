@@ -75,7 +75,8 @@
   .card p strong{color:var(--ink);font-weight:600;font-size:17px}
 
   .btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:32px}
-  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:999px;border:1px solid var(--gold);color:var(--gold);text-decoration:none;letter-spacing:.15em;font-size:15px;background:transparent;transition:.2s}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:999px;border:1px solid var(--gold);color:var(--gold);text-decoration:none;letter-spacing:.15em;font-family:inherit;font-size:15px;background:transparent;transition:.2s;cursor:pointer}
+  .btn[hidden]{display:none}
   .btn:hover{background:var(--gold);color:#fff}
   .btn.solid{background:var(--gold);color:#fff}
   .btn.solid:hover{background:#9E7B39}
@@ -113,6 +114,27 @@
   .lb-close{position:absolute;top:14px;right:14px;z-index:3}
   .lb-count{position:absolute;bottom:16px;left:0;right:0;text-align:center;color:#ddd;letter-spacing:.15em;font-family:"Cormorant Garamond",serif}
 
+  /* illustrations */
+  .deco{display:block;height:auto;pointer-events:none;user-select:none}
+  .info-deco{width:190px;margin:28px auto -8px}
+
+  .line-wrap{display:flex;align-items:center;justify-content:center;gap:24px;max-width:720px;margin:0 auto}
+  .line-wrap .deco{width:220px;flex:0 0 auto}
+
+  /* share */
+  .share{display:grid;grid-template-columns:1fr minmax(0,420px) 1fr;align-items:center;gap:12px;max-width:960px;margin:0 auto}
+  .share .deco{width:100%;max-width:230px}
+  .share .left{justify-self:end}
+  .share .right{justify-self:start}
+  .share-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:28px 24px;text-align:center}
+  .share-card .qr{width:150px;margin:0 auto 14px;border-radius:6px}
+  .url-row{display:flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:999px;padding:6px 6px 6px 16px;background:var(--bg)}
+  .url-row a{flex:1;min-width:0;text-align:left;font-family:"Cormorant Garamond",serif;font-size:18px;letter-spacing:.04em;text-decoration:none;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .copy-btn{border:0;background:var(--gold);color:#fff;border-radius:999px;padding:8px 16px;font:inherit;font-size:14px;letter-spacing:.1em;cursor:pointer;flex:0 0 auto}
+  .copy-btn:hover{background:#9E7B39}
+  .share-card .btns{margin-top:18px}
+  .share-note{color:var(--muted);font-size:14px;margin-top:12px}
+
   .line-box{text-align:center;max-width:520px;margin:0 auto;color:var(--muted)}
 
   footer{padding:56px 0 64px;text-align:center;border-top:1px solid var(--line)}
@@ -140,6 +162,17 @@
     .stage{aspect-ratio:4/5}
     .nav-btn{width:38px;height:38px;font-size:18px}
     .thumbs button{width:56px;height:56px}
+    .info-deco{width:150px}
+    .line-wrap{flex-direction:column;gap:4px}
+    .line-wrap .deco{width:170px}
+    .share{grid-template-columns:1fr 1fr;gap:0 8px}
+    .share-card{grid-column:1 / -1;grid-row:2}
+    .share .deco{max-width:150px;margin-bottom:-6px}
+    .share .left,.share .right{justify-self:center}
+    .share-card{padding:24px 14px}
+    .url-row{padding-left:12px}
+    .url-row a{font-size:15px;letter-spacing:0}
+    .copy-btn{padding:8px 12px}
   }
   @media (max-width:380px){ .countdown{gap:8px} .cd{width:58px} .cd b{font-size:24px} }
 </style>
@@ -155,6 +188,7 @@
       <li><a href="#map">交通地圖</a></li>
       <li><a href="#invitation">喜帖</a></li>
       <li><a href="#line">聯絡我們</a></li>
+      <li><a href="#share">分享</a></li>
     </ul>
   </div>
 </nav>
@@ -250,6 +284,7 @@
         <p><strong>高雄洲際酒店</strong><br>3F 大宴會廳</p>
       </div>
     </div>
+    <img class="deco paper info-deco reveal" src="images/deco/dog-survey.webp" alt="" width="700" height="690" loading="lazy">
     <div class="btns">
       <a class="btn solid" target="_blank" rel="noopener"
          href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=%E6%99%89%E8%8F%AF%20%26%20%E5%AE%A3%E5%9D%87%20%E5%A9%9A%E5%AE%B4&amp;dates=20270123T093000Z/20270123T130000Z&amp;location=%E9%AB%98%E9%9B%84%E6%B4%B2%E9%9A%9B%E9%85%92%E5%BA%97%203F%E5%A4%A7%E5%AE%B4%E6%9C%83%E5%BB%B3%EF%BC%8C806%E9%AB%98%E9%9B%84%E5%B8%82%E5%89%8D%E9%8E%AE%E5%8D%80%E6%96%B0%E5%85%89%E8%B7%AF33%E8%99%9F&amp;details=17%3A30%20%E5%85%A5%E5%B8%AD%E3%80%8118%3A00%20%E9%96%8B%E5%B8%AD%0Ahttps%3A%2F%2Fwedding.jy0318m.com">加入 Google 行事曆</a>
@@ -288,7 +323,9 @@
   <div class="wrap">
     <h2>聯絡我們</h2>
     <div class="en">Stay in Touch</div>
-    <div class="line-box reveal">
+    <div class="line-wrap reveal">
+    <img class="deco paper" src="images/deco/parrot-line.webp" alt="" width="511" height="608" loading="lazy">
+    <div class="line-box">
       <p>加入我們的 LINE 官方帳號，<br>婚禮當天的最新消息與照片都會在這裡分享！</p>
       <div class="btns">
         <a class="btn line" target="_blank" rel="noopener" href="https://lin.ee/Sfs5Mdo">
@@ -296,6 +333,30 @@
           加入 LINE 好友
         </a>
       </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="share">
+  <div class="wrap">
+    <h2>分享婚禮網站</h2>
+    <div class="en">Spread the Joy</div>
+    <div class="share reveal">
+      <img class="deco left" src="images/deco/dog-megaphone.webp" alt="" width="600" height="600" loading="lazy">
+      <div class="share-card">
+        <img class="qr" src="images/qr-wedding.png" alt="婚禮網站 QR code" width="150" height="150" loading="lazy">
+        <div class="url-row">
+          <a href="https://wedding.jy0318m.com/" id="siteUrl">wedding.jy0318m.com</a>
+          <button class="copy-btn" id="copyBtn" type="button">複製連結</button>
+        </div>
+        <div class="btns">
+          <a class="btn line" target="_blank" rel="noopener" href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fwedding.jy0318m.com%2F">分享到 LINE</a>
+          <button class="btn" id="nativeShare" type="button" hidden>更多分享方式</button>
+        </div>
+        <div class="share-note">掃描 QR code 或分享連結，邀請親友一起來看 ♡</div>
+      </div>
+      <img class="deco right" src="images/deco/parrot-megaphone.webp" alt="" width="600" height="600" loading="lazy">
     </div>
   </div>
 </section>
@@ -395,6 +456,25 @@
       new IntersectionObserver(function(en){ if (en[0].isIntersecting) restart(); else clearInterval(timer); }).observe(stage);
     }
     go(0); setPlay(playing);
+  })();
+
+  // ===== 分享 =====
+  (function(){
+    var url = "https://wedding.jy0318m.com/";
+    var btn = document.getElementById("copyBtn");
+    btn.addEventListener("click", function(){
+      function done(){ btn.textContent = "已複製 ✓"; setTimeout(function(){ btn.textContent = "複製連結"; }, 2000); }
+      if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(url).then(done, fallback); } else { fallback(); }
+      function fallback(){
+        var t = document.createElement("textarea"); t.value = url; t.style.position = "fixed"; t.style.opacity = "0";
+        document.body.appendChild(t); t.select(); try { document.execCommand("copy"); done(); } catch(e) { prompt("請複製這個網址：", url); } document.body.removeChild(t);
+      }
+    });
+    var ns = document.getElementById("nativeShare");
+    if (navigator.share) {
+      ns.hidden = false;
+      ns.addEventListener("click", function(){ navigator.share({title: "晉華 & 宣均 婚禮", text: "2027/1/23 高雄洲際酒店，誠摯邀請您！", url: url}).catch(function(){}); });
+    }
   })();
 
   // countdown to 2027-01-23 17:30 Taiwan time
