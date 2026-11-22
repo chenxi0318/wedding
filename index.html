@@ -128,6 +128,16 @@
   .rsvp-text{color:var(--muted)}
   .share-card .btns{margin-top:18px}
 
+  /* photo share */
+  .photo-share{text-align:center}
+  .ps-btn{display:inline-block;width:340px;max-width:86%;transition:transform .2s ease,filter .2s ease;filter:drop-shadow(0 10px 16px rgba(181,72,93,.18))}
+  .ps-btn img{width:100%;height:auto}
+  .ps-btn:hover{transform:translateY(-4px) scale(1.03);filter:drop-shadow(0 16px 22px rgba(181,72,93,.28))}
+  .ps-btn:active{transform:translateY(2px) scale(.98)}
+  .ps-btn:focus-visible{outline:2px solid var(--gold);outline-offset:6px;border-radius:12px}
+  .ps-text{color:var(--muted);margin-top:16px}
+  @media (prefers-reduced-motion:reduce){.ps-btn{transition:none}.ps-btn:hover{transform:none}}
+
   .line-box{text-align:center;max-width:520px;margin:0 auto;color:var(--muted)}
 
   footer{padding:56px 0 64px;text-align:center;border-top:1px solid var(--line)}
@@ -175,6 +185,7 @@
       <li><a href="#rsvp">出席回覆</a></li>
       <li><a href="#map">交通地圖</a></li>
       <li><a href="#invitation">喜帖</a></li>
+      <li><a href="#photos">分享照片</a></li>
       <li><a href="#line">聯絡我們</a></li>
     </ul>
   </div>
@@ -318,6 +329,19 @@
     <h2>電子喜帖</h2>
     <div class="en">Our Invitation</div>
     <img class="reveal" src="images/invitation.jpg" alt="晉華與宣均的電子喜帖" width="1190" height="791" loading="lazy">
+  </div>
+</section>
+
+<section class="block" id="photos">
+  <div class="wrap">
+    <h2>分享婚禮照片</h2>
+    <div class="en">Share Your Photos</div>
+    <div class="photo-share reveal">
+      <a class="ps-btn" href="https://weddingshare.jy0318m.com/" target="_blank" rel="noopener" aria-label="分享婚禮照片">
+        <img src="images/deco/photo-share.webp" alt="吉娃娃和愛情鳥坐在「分享婚禮照片」按鈕上" width="720" height="699" loading="lazy">
+      </a>
+      <p class="ps-text">婚禮當天拍到的精彩瞬間，<br>歡迎點上面的按鈕上傳和我們分享 📸</p>
+    </div>
   </div>
 </section>
 
