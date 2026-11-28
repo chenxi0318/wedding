@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>更多照片｜晉華 & 宣均 婚禮</title>
+<meta name="description" content="晉華 & 宣均 — 更多照片">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wedding.jy0318m.com/photos.html">
+<meta property="og:title" content="晉華 & 宣均 — 更多照片">
+<meta property="og:image" content="https://wedding.jy0318m.com/images/hero.jpg">
+<meta name="theme-color" content="#F7F2E6">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💍</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Serif+TC:wght@400;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F2E6; --card:#FFFDF8; --ink:#4A3A2A; --muted:#8A7A66;
+    --gold:#B8924A; --gold-soft:#E9DCC0; --line:#E4D8BF;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:"Noto Serif TC",serif;line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{max-width:100%;display:block;-webkit-user-drag:none;user-select:none;-webkit-touch-callout:none}
+  a{color:inherit}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+
+  nav{position:sticky;top:0;z-index:10;background:rgba(247,242,230,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+  .logo{font-family:"Great Vibes",cursive;font-size:28px;color:var(--gold);text-decoration:none}
+  .back{font-size:15px;text-decoration:none;color:var(--muted);letter-spacing:.1em}
+  .back:hover{color:var(--gold)}
+
+  section.block{padding:48px 0 72px}
+  h2{text-align:center;font-weight:600;font-size:26px;letter-spacing:.4em;margin-bottom:6px}
+  h2 + .en{text-align:center;font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--gold);letter-spacing:.2em;margin-bottom:32px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:999px;border:1px solid var(--gold);color:var(--gold);text-decoration:none;letter-spacing:.15em;font-family:inherit;font-size:15px;background:transparent;transition:.2s;cursor:pointer}
+  .btn:hover{background:var(--gold);color:#fff}
+
+  /* carousel（與首頁婚紗照相同樣式） */
+  .stage{position:relative;max-width:900px;margin:0 auto;aspect-ratio:3/2;max-height:75vh;width:100%;background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden;touch-action:pan-y;user-select:none}
+  .slide{position:absolute;inset:0;opacity:0;transition:opacity .7s ease;cursor:zoom-in}
+  .slide.on{opacity:1;z-index:1}
+  .slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+  .slide img.bg{object-fit:cover;filter:blur(28px) brightness(1.05) saturate(.9);transform:scale(1.15);opacity:.55}
+  .nav-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,253,248,.85);color:var(--ink);font-size:22px;cursor:pointer;display:grid;place-items:center;box-shadow:0 4px 14px -6px rgba(0,0,0,.3)}
+  .nav-btn:hover{background:#fff;color:var(--gold)}
+  .nav-btn.prev{left:12px}.nav-btn.next{right:12px}
+  .g-bar{display:flex;justify-content:center;align-items:center;gap:16px;margin:14px 0 10px;color:var(--muted);font-family:"Cormorant Garamond",serif;letter-spacing:.15em}
+  .g-play.on{border-color:var(--gold);color:var(--gold)}
+  .g-bar{flex-wrap:wrap}
+  .g-play{white-space:nowrap;border:1px solid var(--line);border-radius:999px;padding:2px 14px;color:var(--muted);cursor:pointer;font:inherit;font-size:14px}
+  .thumbs{display:flex;gap:8px;overflow-x:auto;max-width:900px;margin:0 auto;padding:4px 2px 10px;scrollbar-width:thin}
+  .thumbs button{flex:0 0 auto;width:72px;height:72px;border:2px solid transparent;border-radius:6px;padding:0;overflow:hidden;cursor:pointer;opacity:.55;background:var(--card);transition:.2s}
+  .thumbs button.on{border-color:var(--gold);opacity:1}
+  .thumbs img{width:100%;height:100%;object-fit:cover}
+  /* 全螢幕播放（支援 Fullscreen API 的用原生全螢幕；iPhone 用鋪滿畫面的方式） */
+  .stage.fs{position:fixed;inset:0;z-index:60;max-width:none;max-height:none;aspect-ratio:auto;width:100vw;height:100vh;height:100dvh;border:0;border-radius:0;background:#000;cursor:default}
+  .stage.fs .slide{cursor:default}
+  .stage.fs .slide img.bg{opacity:.35;filter:blur(36px) brightness(.6)}
+  .stage .fs-close,.stage .fs-count{display:none}
+  .stage.fs .fs-close{display:grid;position:absolute;top:14px;right:14px;transform:none;z-index:3;background:rgba(255,255,255,.15);color:#fff}
+  .stage.fs .fs-count{display:block;position:absolute;bottom:14px;left:0;right:0;z-index:3;text-align:center;color:#ddd;letter-spacing:.15em;font-family:"Cormorant Garamond",serif;text-shadow:0 1px 4px #000}
+  .stage.fs .nav-btn.prev,.stage.fs .nav-btn.next{background:rgba(255,255,255,.15);color:#fff}
+  .stage.fs.idle .nav-btn,.stage.fs.idle .fs-count{opacity:0;transition:opacity .5s}
+  .stage.fs.idle{cursor:none}
+  .lightbox{position:fixed;inset:0;z-index:50;background:rgba(20,15,10,.94);display:none;align-items:center;justify-content:center}
+  .lightbox.open{display:flex}
+  .lightbox img{max-width:94vw;max-height:88vh;object-fit:contain}
+  .lightbox .nav-btn{background:rgba(255,255,255,.15);color:#fff}
+  .lb-close{position:absolute;top:14px;right:14px;z-index:3}
+  .lb-count{position:absolute;bottom:16px;left:0;right:0;text-align:center;color:#ddd;letter-spacing:.15em;font-family:"Cormorant Garamond",serif}
+
+  .foot{text-align:center;margin-top:40px}
+  footer{text-align:center;padding:36px 0 48px;border-top:1px solid var(--line)}
+  footer .script{font-family:"Great Vibes",cursive;font-size:40px;color:var(--gold);line-height:1.1}
+  footer p{color:var(--muted);letter-spacing:.25em;font-size:14px}
+
+  @media (max-width:820px){
+    section.block{padding:32px 0 56px}
+    .stage{aspect-ratio:4/5}
+    .nav-btn{width:38px;height:38px;font-size:18px}
+    .thumbs button{width:56px;height:56px}
+    .g-bar{gap:8px 10px}
+    .g-bar #gCount{flex-basis:100%;text-align:center}
+    .g-play{font-size:13px;padding:2px 12px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="index.html">Hua &amp; Jyun</a>
+    <a class="back" href="index.html#gallery">‹ 回婚禮首頁</a>
+  </div>
+</nav>
+
+<section class="block">
+  <div class="wrap">
+    <h2>更多照片</h2>
+    <div class="en">More Moments</div>
+    <div class="stage" id="stage" aria-roledescription="carousel" aria-label="照片輪播">
+      <button class="nav-btn prev" id="gPrev" aria-label="上一張">‹</button>
+      <button class="nav-btn next" id="gNext" aria-label="下一張">›</button>
+      <button class="nav-btn fs-close" id="fsClose" aria-label="離開全螢幕">✕</button>
+      <div class="fs-count" id="fsCount"></div>
+    </div>
+    <div class="g-bar"><span id="gCount">1 / 1</span><button class="g-play" id="gPlay">暫停</button><button class="g-play" id="gShuffle" aria-pressed="false">隨機播放</button><button class="g-play" id="gFull">全螢幕播放</button></div>
+    <div class="thumbs" id="thumbs"></div>
+    <div class="foot"><a class="btn" href="index.html#gallery">‹ 回婚禮首頁</a></div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-label="照片大圖">
+  <button class="nav-btn lb-close" id="lbClose" aria-label="關閉">✕</button>
+  <button class="nav-btn prev" id="lbPrev" aria-label="上一張">‹</button>
+  <img id="lbImg" alt="">
+  <button class="nav-btn next" id="lbNext" aria-label="下一張">›</button>
+  <div class="lb-count" id="lbCount"></div>
+</div>
+
+<footer>
+  <div class="script">Thank you</div>
+  <p>誠摯地邀請您一同分享喜悅</p>
+</footer>
+
+<script>
+  // 照片在 images/photos/0001.jpg ~ NNNN.jpg（依拍攝時間排序），小縮圖在 images/photos/thumbs/
+  var PHOTOS = { folder: "images/photos/", count: 1078, seconds: 4 };
+
+  (function(){
+    var n = PHOTOS.count, dir = PHOTOS.folder, interval = PHOTOS.seconds * 1000;
+    var name = function(i){ return ("000" + (i+1)).slice(-4) + ".jpg"; };
+    var full = function(i){ return dir + name(i); };
+    var thumb = function(i){ return dir + "thumbs/" + name(i); };
+
+    var stage = document.getElementById("stage"), thumbs = document.getElementById("thumbs");
+    var count = document.getElementById("gCount"), playBtn = document.getElementById("gPlay");
+    var lb = document.getElementById("lightbox"), lbImg = document.getElementById("lbImg"), lbCount = document.getElementById("lbCount");
+    var slides = [], tbtns = [], cur = 0, timer = null, playing = true;
+    var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) playing = false;
+
+    var frag = document.createDocumentFragment(), tfrag = document.createDocumentFragment();
+    for (var i = 0; i < n; i++) (function(i){
+      var s = document.createElement("div"); s.className = "slide";
+      var bg = document.createElement("img"); bg.className = "bg"; bg.alt = ""; bg.setAttribute("aria-hidden", "true");
+      var img = document.createElement("img"); img.alt = "照片 " + (i+1); img.decoding = "async";
+      s.appendChild(bg); s.appendChild(img);
+      s.addEventListener("click", function(){ if (!stage.classList.contains("fs")) openLB(); });
+      frag.appendChild(s); slides.push(s);
+      var b = document.createElement("button"); b.setAttribute("aria-label", "第 " + (i+1) + " 張");
+      var t = document.createElement("img"); t.loading = "lazy"; t.alt = ""; t.src = thumb(i);
+      b.appendChild(t); b.addEventListener("click", function(){ if (shuffle) pos = order.indexOf(i); go(i); restart(); });
+      tfrag.appendChild(b); tbtns.push(b);
+    })(i);
+    stage.appendChild(frag); thumbs.appendChild(tfrag);
+
+    function load(i){
+      i = (i + n) % n; var s = slides[i];
+      if (!s.lastChild.src) { s.lastChild.src = full(i); s.firstChild.src = thumb(i); }
+    }
+    function go(i){
+      i = (i + n) % n;
+      slides[cur].classList.remove("on"); tbtns[cur].classList.remove("on");
+      cur = i; load(i); load(i+1); load(i-1);
+      slides[cur].classList.add("on"); tbtns[cur].classList.add("on");
+      count.textContent = (cur+1) + " / " + n; fsCount.textContent = count.textContent;
+      var r = tbtns[cur].getBoundingClientRect(), tr = thumbs.getBoundingClientRect();
+      thumbs.scrollTo({left: thumbs.scrollLeft + r.left - tr.left - tr.width/2 + r.width/2, behavior: reduce ? "auto" : "smooth"});
+      if (lb.classList.contains("open")) showLB();
+    }
+    var shuffle = false, order = null, pos = 0;
+    function shuffled(){ var a = []; for (var k = 0; k < n; k++) a.push(k);
+      for (var k = n - 1; k > 0; k--) { var j = Math.floor(Math.random() * (k + 1)), t = a[k]; a[k] = a[j]; a[j] = t; } return a; }
+    function step(d){
+      if (!shuffle) return go(cur + d);
+      pos = (pos + d + n) % n; go(order[pos]);
+      load(order[(pos + 1) % n]); load(order[(pos - 1 + n) % n]);
+    }
+    var shBtn = document.getElementById("gShuffle");
+    shBtn.onclick = function(){
+      shuffle = !shuffle; shBtn.classList.toggle("on", shuffle); shBtn.setAttribute("aria-pressed", shuffle);
+      if (shuffle) { order = shuffled(); pos = 0; go(order[0]); load(order[1]); } 
+      restart();
+    };
+    function restart(){ clearInterval(timer); if (playing && n > 1) timer = setInterval(function(){ step(1); }, interval); }
+    function setPlay(p){ playing = p; playBtn.textContent = p ? "暫停" : "播放"; restart(); }
+
+    document.getElementById("gPrev").onclick = function(e){ e.stopPropagation(); step(-1); restart(); };
+    document.getElementById("gNext").onclick = function(e){ e.stopPropagation(); step(1); restart(); };
+    playBtn.onclick = function(){ setPlay(!playing); };
+    stage.addEventListener("mouseenter", function(){ if (!stage.classList.contains("fs")) clearInterval(timer); });
+    stage.addEventListener("mouseleave", function(){ if (!stage.classList.contains("fs")) restart(); });
+
+    var x0 = null;
+    stage.addEventListener("touchstart", function(e){ x0 = e.touches[0].clientX; }, {passive:true});
+    stage.addEventListener("touchend", function(e){
+      if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; x0 = null;
+      if (Math.abs(dx) > 40) { step(dx < 0 ? 1 : -1); restart(); }
+    });
+
+    function showLB(){ lbImg.src = full(cur); lbImg.alt = "照片 " + (cur+1); lbCount.textContent = (cur+1) + " / " + n; }
+    function openLB(){ clearInterval(timer); lb.classList.add("open"); document.body.style.overflow = "hidden"; showLB(); }
+    function closeLB(){ lb.classList.remove("open"); document.body.style.overflow = ""; restart(); }
+    document.getElementById("lbClose").onclick = closeLB;
+    document.getElementById("lbPrev").onclick = function(){ step(-1); };
+    document.getElementById("lbNext").onclick = function(){ step(1); };
+    lb.addEventListener("click", function(e){ if (e.target === lb) closeLB(); });
+    var lx = null;
+    lb.addEventListener("touchstart", function(e){ lx = e.touches[0].clientX; }, {passive:true});
+    lb.addEventListener("touchend", function(e){ if (lx===null) return; var dx = e.changedTouches[0].clientX - lx; lx = null; if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1); });
+    document.addEventListener("keydown", function(e){
+      var open = lb.classList.contains("open");
+      if (e.key === "Escape" && stage.classList.contains("fs")) exitFS();
+      else if (e.key === "Escape" && open) closeLB();
+      else if (e.key === "ArrowRight") { step(1); restart(); }
+      else if (e.key === "ArrowLeft") { step(-1); restart(); }
+    });
+
+    // ===== 全螢幕播放 =====
+    var fsCount = document.getElementById("fsCount"), idleT = null;
+    function poke(){ stage.classList.remove("idle"); clearTimeout(idleT); idleT = setTimeout(function(){ stage.classList.add("idle"); }, 2500); }
+    function enterFS(){
+      stage.classList.add("fs"); document.body.style.overflow = "hidden";
+      if (stage.requestFullscreen) stage.requestFullscreen().catch(function(){});
+      else if (stage.webkitRequestFullscreen) stage.webkitRequestFullscreen();
+      fsCount.textContent = count.textContent;
+      setPlay(true); poke();   // 進入全螢幕自動開始播放
+    }
+    function exitFS(){
+      stage.classList.remove("fs", "idle"); document.body.style.overflow = ""; clearTimeout(idleT);
+      if (document.fullscreenElement && document.exitFullscreen) document.exitFullscreen().catch(function(){});
+      else if (document.webkitFullscreenElement && document.webkitExitFullscreen) document.webkitExitFullscreen();
+    }
+    function onFSChange(){ if (!(document.fullscreenElement || document.webkitFullscreenElement) && stage.classList.contains("fs")) exitFS(); }
+    document.addEventListener("fullscreenchange", onFSChange);
+    document.addEventListener("webkitfullscreenchange", onFSChange);
+    document.getElementById("gFull").onclick = enterFS;
+    document.getElementById("fsClose").onclick = function(e){ e.stopPropagation(); exitFS(); };
+    ["mousemove", "touchstart", "click"].forEach(function(ev){ stage.addEventListener(ev, function(){ if (stage.classList.contains("fs")) poke(); }, {passive:true}); });
+
+    // 不提供下載：停用右鍵選單與拖曳圖片
+    document.addEventListener("contextmenu", function(e){ if (e.target.tagName === "IMG" || e.target.closest(".stage,.lightbox,.thumbs")) e.preventDefault(); });
+    document.addEventListener("dragstart", function(e){ if (e.target.tagName === "IMG") e.preventDefault(); });
+    go(0); setPlay(playing);
+  })();
+</script>
+</body>
+</html>
